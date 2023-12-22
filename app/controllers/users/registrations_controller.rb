@@ -5,6 +5,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
 
     super
+
+    if params[:user][:is_buyer] == 'true'
+      Buyer.create(user: current_user)
+    else
+      Seller.create(user: current_user)
+    end
   end
 
   protected
@@ -15,7 +21,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :is_buyer])
   end
 
   def update_resource(resource, params)
