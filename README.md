@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version: 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x64-mingw-ucrt]
 
-Things you may want to cover:
+* Configuration :
 
-* Ruby version
+  add .env file that should look like so:
 
-* System dependencies
+  DATABASE_URL_DEV="postgres://username:password@localhost/ruby_labs_development"
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+  then run:
+  
+  bundle install
+  
+  rails db:migrate
 
 * Deployment instructions
 
-* ...
+  in the root of the project run this command in the terminal:
+  
+  rails s
